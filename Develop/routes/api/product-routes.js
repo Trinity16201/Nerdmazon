@@ -4,7 +4,8 @@ const { Product, Category, } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
-router.get('/products', (req, res) => {
+router.get('/', (req, res) => {
+  
   // find all products
   Product.findAll()
   .then(product => res.status(200).json(product))
@@ -15,7 +16,7 @@ router.get('/products', (req, res) => {
 });
 
 // get one product
-router.get('/products/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   // find a single product by its `id`
   Product.findOne({
     where: { id:req.params.id },
@@ -26,7 +27,7 @@ router.get('/products/:id', (req, res) => {
 });
 
 // create new product
-router.post('/products', (req, res) => {
+router.post('/', (req, res) => {
   const {product_name,price,stock,category_id} = req.body;
   Product.create({product_name,price,stock,category_id})
   .then(newProduct => {
@@ -39,7 +40,7 @@ router.post('/products', (req, res) => {
 });
 
 // update product
-router.put('/products/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const {id} = req.params;
   const {product_name,price,stock,category_id} = req.body;
   Product.update({product_name, price, stock, category_id})
@@ -55,7 +56,7 @@ router.put('/products/:id', (req, res) => {
   })
 });
 
-router.delete('/products/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where: { id:req.params.id }
