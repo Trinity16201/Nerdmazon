@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User } = require('../models');
+const { User } = require('../../models');
 
 /* //Route to get all users
 router.get('/users', (req, res) =>{
@@ -87,3 +87,4 @@ router.post('/login', (req, res) => {
         res.status(500).json({error: "Login unsuccessful"});
     })
 })
+module.exports = router;
