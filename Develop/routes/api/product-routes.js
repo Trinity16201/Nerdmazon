@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   const {id} = req.params;
   const {product_name,price,stock,category_id} = req.body;
-  Product.update({product_name, price, stock, category_id})
+  Product.update({product_name, price, stock, category_id}, {where:{id}})
   .then(updatedProduct => {
     if (updatedProduct[0] === 0){
       return res.status(400).json({error: "Unable to find product"});
