@@ -5,39 +5,56 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nerdmazon</title>
-  <link href=
-"https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-          rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/main.css">
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="relative container w-full mx-auto bg-blue-600">
+  <nav class="relative mx-auto p-3 bg-blue-600">
     <div class="flex item-center justify-between">
-      <div class="text-3xl text-white">Nerdmazon
+      <div class="text-3xl text-white"alt="">Nerdmazon
+        <img class="object-cover h-20 w-20 " src="./logo.svg" alt="" />
       </div>
-      <div class="hidden md:flex space-x-6 text-white pt-2">
-        <a href="#">Login</a>
+      <div class="hidden md:flex space-x-6 text-black pt-2 text-2xl text-white ">
+        <a class="hover:bg-blue-400" href="#">Login</a>
         <a href="#">
-          <img class="object-cover h-15 w-10 " src="../assets/Cart.png" alt="" />
+          <img class="object-cover h-15 w-10 " src="./Cart.png" alt="" />
         </a>
       </div>
-      <a href="#" class="hidden md:block p-3 px-6 pt-2 text-white bg-red rounded-full baseline hover:bg-red">Menu
-        </Menu></a>
-    </div>
-    <form action="">
-      <input type="text" name="search" placeholder="Search box" class="px-20 py-1 text-black rounded-2xl ring-2 ">
+        <a href="#"
+        class="hidden md:block py-1 px-6 p-3 pt-2 text-black bg-teal-600 rounded-full baseline text-white h-12 text-xl hover:bg-teal-400">Menu</a>
 
+    </div>
+    <form class="flex w-96 rounded-2xl bg-white">
+      <input type="text" name="search" id="search" placeholder="Search box"
+        class="px-4 py-1 text-black rounded-2xl w-full">
+      <button class="m-2 rounded bg-teal-600 px-4 py-2 text-white hover:bg-teal-400">
+        Search
+      </button>
     </form>
 
   </nav>
   <main>
-    <aside>
-      <h2>Find the perfect for this holiday season!</h2>
+    <aside >
+      <h2 class="text-2xl">Find the perfect for this holiday season!</h2>
     </aside>
-    <div class="product">
+    {{!-- <div class="product">
       {{{body}}}
+    </div> --}}
+    <div class="text-mid border-solid ">
+      {{#each products}}
+      <div>
+        <h3>
+        {{product_name}}
+        </h3>
+        <h3>
+        {{price}}
+        </h3>
+        <h3>
+        {{stock}}
+        </h3>
+      </div>
+      {{/each}}
     </div>
   </main>
 </body>
