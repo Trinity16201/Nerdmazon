@@ -2,31 +2,29 @@ const router = require('express').Router();
 const { User, Product, Category, } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
-  console.log('homeRoutes');
-  res.render('homepage')
-  // try {
-  //   // Get all products and JOIN with user data
-  //   const productData = await Product.findAll({
-  //     include: [
-  //       {
-  //         model: Category,
-  //         attributes: ['name'],
-  //       },
-  //     ],
-  //   });
+router.get('/', async (req, res) => {
+  
+  try {
+    // Get all products and JOIN with user data
+    const productData = await Product.findAll({
+      include: [
+        {
+          model: Category,
+          attributes: ['category_name'],
+        },
+      ],
+    });
 
-  //   // Serialize data so the template can read it
-  //   const products = productData.map((product) => product.get({ plain: true }));
+    // Serialize data so the template can read it
+    const products = productData.map((product) => product.get({ plain: true }));
 
-  //   // Pass serialized data and session flag into template
-  //   res.render('homepage', { 
-  //     products, 
-  //     logged_in: req.session.logged_in 
-  //   });
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+      products, 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/products/:id', async (req, res) => {
