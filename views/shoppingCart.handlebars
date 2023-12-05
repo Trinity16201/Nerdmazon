@@ -1,0 +1,13 @@
+<section class="card">
+  <ul>
+      {{#each products}}
+        <li>
+          <span>{{this.product_name}}</span>
+          <span>Quantity: {{this.quantity}}</span>
+          <span>Price: ${{this.price}}</span>
+        </li>
+      {{/each}}
+    </ul>
+    <p>Total Items: {{totalItems}}</p>
+    <p>Total Cost: ${{totalPrice}}</p>
+</section>
