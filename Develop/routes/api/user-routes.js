@@ -39,7 +39,7 @@ router.post('/signup', (req, res) => {
 router.put('/users/:id', (req, res) => {
     const {id} = req.params;
     const {name, email, password } = req.body
-    User.Update({name, email, password}, {where:{id} })
+    User.update({name, email, password}, {where:{id} })
         .then(updatedInfo => {
             if (updatedInfo[0] === 0){
                 return res.status(400).json({error: "Unable to find user"});
