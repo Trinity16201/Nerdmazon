@@ -16,7 +16,11 @@
         <img class="object-cover h-20 w-20 " src="./assets/logo.svg" alt="" />
       </div>
       <div class="hidden md:flex space-x-6 text-black pt-2 text-2xl h-12 text-white ">
-        <a class="hover:bg-blue-400" href="#">Login</a>
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a class="hover:bg-blue-400" href="/login">Login</a>
+        {{/if}}
         <a href="#">
           <img class="object-cover h-15 w-10 " src="./assets/Cart.png" alt="" />
         </a>
@@ -40,9 +44,7 @@
       <h2 class="text-2xl text-center p-3 text-red-600 text-3xl">Find the perfect gift for this holiday season!</h2>
 
     </aside>
-    {{!-- <div class="product">
-      {{{body}}}
-    </div> --}}
+    
     <div class="text-mid border-solid ">
       {{#each products}}
       <div>
