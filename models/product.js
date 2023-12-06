@@ -34,6 +34,13 @@ Product.init(
         isNumeric: true,
       },
     },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: false, 
+      validate: {
+        isUrl: true, 
+      },
+    },
     category_id: {
       type: DataTypes.INTEGER,
       references: {
