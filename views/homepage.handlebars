@@ -10,25 +10,25 @@
 </head>
 
 <body>
-  <nav class="relative mx-auto p-3 bg-blue-600">
+  <nav class="relative mx-auto p-6 bg-blue-600">
     <div class="flex item-center justify-between">
       <div class="text-3xl text-white"alt="">Nerdmazon
         <img class="object-cover h-20 w-20 " src="./assets/logo.svg" alt="" />
       </div>
-      <div class="hidden md:flex space-x-6 text-black pt-2 text-2xl text-white ">
+      <div class="hidden md:flex space-x-6 text-black pt-2 text-2xl h-12 text-white ">
         <a class="hover:bg-blue-400" href="#">Login</a>
         <a href="#">
           <img class="object-cover h-15 w-10 " src="./assets/Cart.png" alt="" />
         </a>
       </div>
         <a href="#"
-        class="hidden md:block py-1 px-6 p-3 pt-2 text-black bg-teal-600 rounded-full baseline text-white h-12 text-xl hover:bg-teal-400">Menu</a>
+        class="hidden md:block py-1 px-6 p-3 pt-2 text-black bg-teal-600 rounded-full text-white h-12 text-xl hover:bg-teal-400">Menu</a>
 
     </div>
     <form class="flex w-96 rounded-2xl bg-white">
       <input type="text" name="search" id="search" placeholder="Search box"
-        class="px-4 py-1 text-black rounded-2xl w-full">
-      <button class="m-2 rounded bg-teal-600 px-4 py-2 text-white hover:bg-teal-400">
+        class="px-4 py-1 border-none text-black rounded-2xl outline-none w-full">
+      <button class="m-2 border-none rounded bg-teal-600 px-4 py-2 text-white hover:bg-teal-400">
         Search
       </button>
     </form>
@@ -37,7 +37,7 @@
   <main>
     <aside >
 
-      <h2 class="text-2xl">Find the perfect gift for this holiday season!</h2>
+      <h2 class="text-2xl text-center p-3 text-red-600 text-3xl">Find the perfect gift for this holiday season!</h2>
 
     </aside>
     {{!-- <div class="product">
@@ -51,10 +51,10 @@
         </h3>
         <img src="{{image_url}}" class="object-cover w-32 h-32">
         <h3>
-        {{price}}
+        Price: ${{price}}
         </h3>
         <h3>
-        {{stock}}
+        Quantity: {{stock}}
         </h3>
       </div>
       {{/each}}
