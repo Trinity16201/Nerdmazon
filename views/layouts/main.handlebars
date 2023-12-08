@@ -10,11 +10,42 @@
 </head>
 
 <body>
+  <nav class="relative mx-auto p-6 bg-blue-600">
+    <div class="flex item-center justify-between">
+      <a href="/" class="text-3xl text-white"alt="">Nerdmazon
+        <img class="object-cover h-20 w-20 " src="./assets/logo.svg" alt="" />
+      </a>
+      <div class="hidden md:flex space-x-6 text-black pt-2 text-2xl h-12 text-white ">
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a class="hover:bg-blue-400" href="../login">Login</a>
+        {{/if}}
+        <a href="#">
+          <img class="object-cover h-15 w-10 " src="./assets/Cart.png" alt="" />
+        </a>
+      </div>
+        <a href="#"
+        class="hidden md:block py-1 px-6 p-3 pt-2 text-black bg-teal-600 rounded-full text-white h-12 text-xl hover:bg-teal-400">Menu</a>
 
-    <div class="product">
-      {{{body}}}
     </div>
+    <form class="flex w-96 rounded-2xl bg-white">
+      <input type="text" name="search" id="search" placeholder="Search box"
+        class="px-4 py-1 border-none text-black rounded-2xl outline-none w-full">
+      <button class="m-2 border-none rounded bg-teal-600 px-4 py-2 text-white hover:bg-teal-400">
+        Search
+      </button>
+    </form>
+
+  </nav>
+  <main>
+ 
+    {{{body}}}
+    
   </main>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
